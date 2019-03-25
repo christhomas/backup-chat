@@ -11,10 +11,4 @@ chrome.runtime.onInstalled.addListener(function() {
       actions: [new chrome.declarativeContent.ShowPageAction()]
     }]);
   });
-
-  chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-    chrome.tabs.sendMessage(tabs[0].id, {type: "addExportButtons"}, (response) => {
-      console.log(response);
-    });
-  });
 });
