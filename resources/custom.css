@@ -1,0 +1,17 @@
+/** For any custom styles on top of bootstrap */
+main {
+    margin: 1rem;
+    min-width: 500px;
+}
+
+main h1 {
+    
+}
+
+main .user-list tfoot {
+    text-align: center;
+}
+
+main .user-list tbody td:last-child{
+    width: 1%;
+}

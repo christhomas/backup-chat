@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="resources/bootstrap.min.css" />
+    <link rel="stylesheet" href="resources/custom.css" />
+  </head>
+  <body>
+    <main class="container-fluid">
+        <header>
+            <h1 class="float-left">Backup Chat</h1>
+            <div class="float-right">
+                <button id="refresh" class="btn btn-success">Refresh</button>
+            </div>
+        </header>
+
+        <div class="user-list panel panel-default">
+          <table class="table">
+            <thead>
+              <tr>
+                <td colspan="2">Username</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Chris Thomas</td>
+                <td><button class="btn btn-sm btn-primary">Select</button></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="2">Empty List</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+    </main>
+    
+    <script src="popup.js"></script>
+
+    <script src="resources/jquery-3.3.1.slim.min.js"></script>
+    <script src="resources/popper.min.js"></script>
+    <script src="resources/bootstrap.min.js"></script>
+  </body>
+</html>
