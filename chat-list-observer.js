@@ -1,10 +1,13 @@
-console.log("Content Script: Hello from the backup chat extension");
+console.log("Chat List Observer Script: Hello from the backup chat extension");
 
 let body = document.querySelectorAll("body")[0];
 
 let added = false;
 
-var observer = new MutationObserver((mutationList, observer) => {
+// To find the node containing the phone number
+// document.evaluate("//span[text()='About and phone number']", document, null, XPathResult.ANY_TYPE, null).iterateNext()
+
+var chatListObserver = new MutationObserver((mutationList, observer) => {
     for(let mutation of mutationList){
         if(mutation.type === "childList"){
             let main = app.querySelectorAll("#main");
@@ -50,11 +53,24 @@ var observer = new MutationObserver((mutationList, observer) => {
     }
 });
 
-observer.observe(body,{
+chatListObserver.observe(body,{
     childList: true,
     subtree: true,
 });
 
 function backupChat(event) {
     console.log("Backup This Chat", event);
+
+    let messages = app.querySelectorAll("#main .message-in, #main .message-out, #main .tail");
+    
+    if(messages.length === 0){
+        console.log("There is nothing to backup, this is an empty chat");
+        return;
+    }
+
+    let wrapper = messages[0].parentElement;
+    let history = wrapper.parentElement;
+    console.log(history);
+    
+    console.log(history.childList.length);
 }

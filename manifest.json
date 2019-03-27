@@ -16,7 +16,11 @@
   "content_scripts": [{
     "matches": ["https://web.whatsapp.com/*"],
     "all_frames": true,
-    "js": ["content.js"],
+    "js": [
+      "chat-list-observer.js",
+      "chat-refresh-observer.js",
+      "chat-backup-processor.js"
+    ],
     "run_at": "document_idle"
   }],
   "page_action": {
